@@ -1,3 +1,5 @@
+LDFLAGS = -ldflags "-X main.gitSHA=$(shell git rev-parse HEAD)"
+
 # Force-enable Go modules even if this project has been cloned within a user's GOPATH
 export GO111MODULE = on
 
@@ -20,7 +22,7 @@ clean:
 .PHONY: build
 build:
 	mkdir -p bin
-	go build $(V) -o bin/gokay
+	go build $(LDFLAGS) $(V) -o bin/gokay
 
 .PHONY: fmt
 fmt:
