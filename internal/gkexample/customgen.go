@@ -3,7 +3,7 @@ package gkexample
 import (
 	"fmt"
 
-	"github.com/zencoder/gokay/gkgen"
+	"github.com/brightcove/playback_gokay/gkgen"
 )
 
 // To run: `gokay gkexample NewCustomGenerator`

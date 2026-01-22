@@ -3,7 +3,7 @@ package gkexample
 import (
 	"errors"
 
-	"github.com/zencoder/gokay/gokay"
+	"github.com/brightcove/playback_gokay/gokay"
 )
 
 type NoImplicitValidate struct {
