@@ -1,4 +1,4 @@
-module github.com/zencoder/gokay
+module github.com/brightcove/playback_gokay
 
 go 1.17
 

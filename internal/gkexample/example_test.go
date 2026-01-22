@@ -5,9 +5,9 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/brightcove/playback_gokay/gokay"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/stretchr/testify/require"
-	"github.com/zencoder/gokay/gokay"
 )
 
 func TestNotAValidateable(t *testing.T) {
