@@ -16,6 +16,7 @@ TestOnlyPipeline(
 						withCredentials([
 							string(credentialsId: 'github-public-access-token-bc-svc-cicd', variable: 'GIT_TOKEN')]) {
 							sh 'git config --global url."https://$GIT_TOKEN:x-oauth-basic@github.com/".insteadOf "https://github.com/"'
+							sh "git config --global --add safe.directory \"\$(pwd)\""
 							sh 'go mod download'
 						}
 					}
