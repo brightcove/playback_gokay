@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/davecgh/go-spew v1.1.1
-	github.com/pborman/uuid v0.0.0-20170612153648-e790cca94e6c
+	github.com/google/uuid v1.6.0
 	github.com/stretchr/testify v1.1.4
 	golang.org/x/text v0.3.7
 	golang.org/x/tools v0.1.10
