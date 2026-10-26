@@ -14,7 +14,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/pborman/uuid"
+	"github.com/google/uuid"
 	"golang.org/x/tools/imports"
 )
 
@@ -47,7 +47,7 @@ func main() {
 	fileName, _ = filepath.Abs(fileName)
 	fileDir := filepath.Dir(fileName)
 
-	tempName := uuid.NewRandom().String()
+	tempName := uuid.New().String()
 
 	tempDir := fmt.Sprintf("%s/tmp/%s", fileDir, tempName)
 	tempFile := fmt.Sprintf("%s/%s.go", tempDir, tempName)
