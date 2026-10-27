@@ -1,6 +1,6 @@
 module github.com/brightcove/playback_gokay
 
-go 1.17
+go 1.26.10
 
 require (
 	github.com/davecgh/go-spew v1.1.1
