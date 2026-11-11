@@ -1,0 +1,40 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Build & unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      # Go from go.mod, as the golang:1.26 agent image did.
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
+        with:
+          go-version-file: go.mod
+          cache-dependency-path: go.sum
+
+      # Jenkins ran this in its "Prepare test environment" stage: gokay shells out
+      # to git, and the Jenkins agent needed the workspace declared safe.
+      - name: Mark the workspace safe for git
+        run: git config --global --add safe.directory "$(pwd)"
+
+      # Jenkins "Prepare test environment": go mod download.
+      - name: Download modules
+        run: go mod download
+
+      # Jenkins "Run Tests": make (all: build test).
+      - name: Build and test
+        run: make
